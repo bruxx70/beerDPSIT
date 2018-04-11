@@ -32,6 +32,14 @@ class Estilo
      * @ORM\OneToMany(targetEntity="Cerveza", mappedBy="estilo", fetch="EXTRA_LAZY")
      */
     private $cervezas;
+
+
+    public function __toString()
+    {
+      return $this->descripcion;
+    }
+
+    
     /**
      * Get id
      *

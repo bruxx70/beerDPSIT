@@ -3,27 +3,24 @@
 {% block body %}
     <h1>Estilos list</h1>
 
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Descripcion</th>
-                <th>Actions</th>
+                <th class="col-xs-1">Id</th>
+                <th class="col-xs-9">Descripcion</th>
+                <th class="col-xs-2">Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for estilo in estilos %}
+        {% for estilos in estilos %}
             <tr>
-                <td><a href="{{ path('estilo_show', { 'id': estilo.id }) }}">{{ estilo.id }}</a></td>
-                <td>{{ estilo.descripcion }}</td>
+                <td><a href="{{ path('estilo_show', { 'id': estilos.id }) }}">{{ estilos.id }}</a></td>
+                <td>{{ estilos.descripcion }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('estilo_show', { 'id': estilo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('estilo_edit', { 'id': estilo.id }) }}">edit</a>
-                        </li>
+                        <a href="{{ path('estilo_show', { 'id': estilos.id }) }}" class="btn btn-primary"> show</a>
+                        <a href="{{ path('estilo_edit', { 'id': estilos.id }) }}" class="btn btn-warning"> edit</a>
+                        <a href="{{ path('estilo_delete',{ 'id': estilos.id }) }}"class="btn btn-danger">delete</a>
                     </ul>
                 </td>
             </tr>
@@ -33,7 +30,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('estilo_new') }}">Create a new estilo</a>
+            <a href="{{ path('estilo_new') }}"class="btn btn-primary"><i class="fa fa-plus"></i> Agregar</a>
         </li>
     </ul>
 {% endblock %}

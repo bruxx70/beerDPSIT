@@ -1,27 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Estilo</h1>
+<h1>Estilo</h1>
 
-    <table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="col-xs-1">Id</th>
+                <th class="col-xs-9">Descripcion</th>
+                <th class="col-xs-2">Acciones</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <th>Id</th>
                 <td>{{ estilo.id }}</td>
-            </tr>
-            <tr>
-                <th>Descripcion</th>
                 <td>{{ estilo.descripcion }}</td>
+                <td>
+                    <ul>
+                        <a href="{{ path('estilo_show', { 'id': estilo.id }) }}" class="btn btn-primary"> show</a>
+                        <a href="{{ path('estilo_edit', { 'id': estilo.id }) }}" class="btn btn-warning"> edit</a>
+                        <a href="{{ path('estilo_delete', { 'id': estilo.id }) }}" class="btn btn-danger"> delete</a>
+                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('estilo_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('estilo_edit', { 'id': estilo.id }) }}">Edit</a>
+            <a href="{{ path('estilo_index') }}" class="btn btn-primary">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

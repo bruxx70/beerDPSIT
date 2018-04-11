@@ -1,16 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Estilo creation</h1>
+    <h1>Nuevo estilo</h1>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    {#{ form_start(form, {"attr":{"novalidate":"novalidate"}}) }#}
+                    <div class="form-group col-xs-6">
+                            <label>{{ form_label(form.descripcion) }}</label>
+                            {{ form_errors(form.descripcion) }}
+                            {{ form_widget(form.descripcion, {'attr' : {'class' : 'form-control'} }) }}
+                    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+                    
+                </div>
+            </div>
+            <div class="panel-footer">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                {{ form_end(form) }}
+                <a href="{{ path('cerveza_index') }}" class="btn btn-default">Volver</a>
+            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('estilo_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        </div>
+    </div>
+    
 {% endblock %}
