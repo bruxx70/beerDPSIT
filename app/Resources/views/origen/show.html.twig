@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Origen</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="col-xs-1">Id</th>
+                <th class="col-xs-9">Descripcion</th>
+                <th class="col-xs-2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ origen.id }}</td>
+                <td>{{ origen.descripcion }}</td>
+                <td>
+                    <ul>
+                        <a href="{{ path('origen_show', { 'id': origen.id }) }}" class="btn btn-primary"> show</a>
+                        <a href="{{ path('origen_edit', { 'id': origen.id }) }}" class="btn btn-warning"> edit</a>
+                        <a href="{{ path('origen_delete', { 'id': origen.id }) }}" class="btn btn-danger"> delete</a>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('origen_index') }}" class="btn btn-primary">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

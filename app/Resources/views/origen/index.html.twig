@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Origens list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="col-xs-1">Id</th>
+                <th class="col-xs-9">Descripcion</th>
+                <th class="col-xs-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for origen in origens %}
+            <tr>
+                <td><a href="{{ path('origen_show', { 'id': origen.id }) }}">{{ origen.id }}</a></td>
+                <td>{{ origen.descripcion }}</td>
+                <td>
+                    <ul>
+                        <a href="{{ path('origen_show', { 'id': origen.id }) }}" class="btn btn-primary"> show</a>
+                        <a href="{{ path('origen_edit', { 'id': origen.id }) }}" class="btn btn-warning"> edit</a>
+                        <a href="{{ path('origen_delete', { 'id': origen.id }) }}" class="btn btn-danger"> delete</a>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('origen_new') }}"class="btn btn-primary"><i class="fa fa-plus"></i> Agregar</a>
+        </li>
+    </ul>
+{% endblock %}
